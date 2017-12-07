@@ -16,14 +16,6 @@ require "action_cable/engine"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-# configure default behavior of rails generators
-config.generators do |g|
-  g.test_framework false
-  g.stylesheets    false
-  g.javascripts    false
-  g.helper         false
-  g.channel        false
-end
 
 module EvilChat
   class Application < Rails::Application
@@ -33,6 +25,14 @@ module EvilChat
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    # configure default behavior of rails generators
+    config.generators do |g|
+      g.test_framework false
+      g.stylesheets    false
+      g.javascripts    false
+      g.helper         false
+      g.channel        false
+    end
 
     # Don't generate system test files.
     config.generators.system_tests = nil
